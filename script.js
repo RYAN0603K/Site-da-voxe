@@ -315,7 +315,10 @@ Gostaria de validar estes números e agendar a reunião de diagnóstico de 8 hor
     const sliderDots = document.querySelectorAll('.slider-dot');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    const sliderWrapper = document.querySelector('.partners-slider-wrapper');
     let currentPartnerIndex = 0;
+    let autoplayInterval = null;
+    const autoplayDelay = 8000; // 8 segundos de rotação (ajustado para leitura confortável)
 
     if (partnerSlides.length > 0 && sliderDots.length > 0) {
         function showPartner(index) {
@@ -338,15 +341,52 @@ Gostaria de validar estes números e agendar a reunião de diagnóstico de 8 hor
             sliderDots[currentPartnerIndex].classList.add('active');
         }
         
+        // Funções do Sistema Automático (Autoplay)
+        function startAutoplay() {
+            if (!autoplayInterval) {
+                autoplayInterval = setInterval(() => {
+                    showPartner(currentPartnerIndex + 1);
+                }, autoplayDelay);
+            }
+        }
+
+        function stopAutoplay() {
+            if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+        }
+
+        function resetAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+        }
+
+        // Inicializa o sistema automático
+        startAutoplay();
+
+        // Pausa automática quando o usuário está lendo/passando o mouse por cima
+        if (sliderWrapper) {
+            sliderWrapper.addEventListener('mouseenter', () => {
+                stopAutoplay(); // Para o autoplay para não interromper a leitura
+            });
+            
+            sliderWrapper.addEventListener('mouseleave', () => {
+                startAutoplay(); // Retoma quando a pessoa tira o mouse (parou de ler)
+            });
+        }
+        
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
                 showPartner(currentPartnerIndex - 1);
+                resetAutoplay();
             });
         }
         
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
                 showPartner(currentPartnerIndex + 1);
+                resetAutoplay();
             });
         }
         
@@ -354,6 +394,7 @@ Gostaria de validar estes números e agendar a reunião de diagnóstico de 8 hor
             dot.addEventListener('click', () => {
                 const index = parseInt(dot.getAttribute('data-index'));
                 showPartner(index);
+                resetAutoplay();
             });
         });
     }
