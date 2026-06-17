@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Obrigado pelo seu cadastro na Voxe! Nosso especialista entrará em contato em instantes para apresentar seu diagnóstico de crescimento.">
+    <title>Cadastro Finalizado! | Voxe Growth Partners</title>
+    
+    <!-- Fonts: Outfit (Display) e Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <!-- Link CSS principal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Estilos adicionais específicos para a página de Obrigado */
+        .thankyou-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            background-color: var(--bg-primary);
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+        
+        .thankyou-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            width: 100%;
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .thankyou-logo {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        
+        .thankyou-logo img {
+            height: 45px;
+            width: auto;
+        }
+        
+        .thankyou-logo span {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #FFFFFF 30%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .thankyou-card {
+            background: rgba(13, 27, 46, 0.45);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(0, 200, 224, 0.02);
+            animation: scaleUpIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thankyou-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+        }
+        
+        .success-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(0, 200, 224, 0.08);
+            border: 1px solid rgba(0, 200, 224, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 200, 224, 0.1);
+            animation: pulseGlow 2s infinite;
+        }
+        
+        .success-icon-wrapper svg {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .thankyou-title {
+            font-size: 2.4rem;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .thankyou-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+        
+        .thankyou-highlight {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+        
+        .thankyou-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+        
+        @media (min-width: 576px) {
+            .thankyou-actions {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .thankyou-actions .btn {
+                width: auto;
+                min-width: 200px;
+            }
+        }
+        
+        .thankyou-footer {
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .thankyou-footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Animações customizadas */
+        @keyframes scaleUpIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(0, 200, 224, 0.25); border-color: rgba(0, 200, 224, 0.25); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 200, 224, 0); border-color: rgba(0, 200, 224, 0.4); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 200, 224, 0); border-color: rgba(0, 200, 224, 0.25); }
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="thankyou-wrapper">
+
+        <!-- Header/Logo -->
+        <div class="thankyou-logo">
+            <img src="assets/logo-transparent.png" alt="Voxe Logo">
+            <span>VOXE</span>
+        </div>
+
+        <!-- Conteúdo principal -->
+        <div class="thankyou-content">
+            <div class="thankyou-card">
+                <div class="success-icon-wrapper">
+                    <!-- Ícone de checkmark -->
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                
+                <h1 class="thankyou-title">Simulação Concluída!</h1>
+                <p class="thankyou-subtitle">
+                    Seu diagnóstico foi gerado com sucesso. Para liberar a simulação de ROI e verificar a disponibilidade de assessoria na sua região (vagas limitadas), <span class="thankyou-highlight">clique no botão abaixo e fale com o especialista</span> no WhatsApp.
+                </p>
+                
+                <div class="thankyou-actions">
+                    <a href="index.html" class="btn btn-secondary">Voltar para o site</a>
+                    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Acabei%20de%20finalizar%20minha%20simula%C3%A7%C3%A3o%20no%20site%20da%20Voxe.%20Gostaria%20de%20liberar%20o%20diagn%C3%B3stico%20e%20ver%20a%20disponibilidade%20da%20minha%20regi%C3%A3o." target="_blank" rel="noopener" class="btn btn-primary">Liberar Meu Diagnóstico no WhatsApp →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="thankyou-footer" style="margin-top: 40px; text-align: center;">
+            <p style="font-size: 0.95rem; margin-bottom: 15px;">
+                <a href="mailto:atendimento@assessoriavoxe.com" style="color: var(--text-primary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-primary)'">atendimento@assessoriavoxe.com</a>
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">&copy; 2026 Voxe Growth Partners. Todos os direitos reservados.</p>
+        </div>
+    </div>
+
+</body>
+</html>

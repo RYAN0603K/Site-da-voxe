@@ -1,315 +1,218 @@
 /* ==========================================================================
-   Voxe - Interactive Logic & Simulator (2026 Dark Premium)
+   Voxe Lógica JavaScript - Enxuta & Performance (2026 B2B Premium)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     
     // ----------------------------------------------------------------------
-    // 1. Menu Mobile (Hamburger Menu)
+    // 1. Menu Mobile
     // ----------------------------------------------------------------------
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
-            
-            // Prevent body scroll when menu is active
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            menuToggle.classList.toggle('open');
         });
         
-        // Close menu when clicking a link
+        // Fechar menu ao clicar em links
         const navLinks = navMenu.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
-                document.body.style.overflow = '';
+                menuToggle.classList.remove('open');
             });
         });
     }
 
     // ----------------------------------------------------------------------
-    // 2. Animação Scroll Reveal (Intersection Observer)
+    // 2. Calculadora de Prejuízo Oculto
     // ----------------------------------------------------------------------
-    const revealElements = document.querySelectorAll('.reveal-fade, .reveal-fade-up, .reveal-fade-right');
+    const leadRange = document.getElementById('leadRange');
+    const convRange = document.getElementById('convRange');
+    const leadDisplay = document.getElementById('leadDisplay');
+    const convDisplay = document.getElementById('convDisplay');
+    const calcBillingSelector = document.getElementById('calcBillingSelector');
+    const lostConsultations = document.getElementById('lostConsultations');
+    const lostRevenue = document.getElementById('lostRevenue');
+    const recoverRevenueBtn = document.getElementById('recoverRevenueBtn');
+
+    let calcContacts = 200;
+    let calcConversion = 15;
+    let calcTicket = 160; 
+    let calcBillingLevel = 1;
+
+    function updateCalculator() {
+        if (!leadRange || !convRange) return;
+        
+        if (leadDisplay) leadDisplay.textContent = `${calcContacts} ${calcContacts === 1 ? 'mensagem' : 'mensagens'}`;
+        if (convDisplay) convDisplay.textContent = `${calcConversion}%`;
+
+        // Alvo saudável de conversão: 70% com automação + recepção treinada
+        const targetConversion = 70;
+        let lostPct = (targetConversion - calcConversion) / 100;
+        if (lostPct < 0) lostPct = 0;
+
+        const lostConsultationsVal = Math.round(calcContacts * lostPct);
+        const lostRevenueVal = lostConsultationsVal * calcTicket;
+
+        if (lostConsultations) lostConsultations.textContent = `-${lostConsultationsVal}`;
+        if (lostRevenue) lostRevenue.textContent = `R$ ${lostRevenueVal.toLocaleString('pt-BR')}`;
+    }
+
+    if (leadRange && convRange) {
+        // Inicializar com valores padrões
+        calcContacts = parseInt(leadRange.value) || 200;
+        calcConversion = parseInt(convRange.value) || 15;
+        updateCalculator();
+
+        leadRange.addEventListener('input', (e) => {
+            calcContacts = parseInt(e.target.value);
+            updateCalculator();
+        });
+
+        convRange.addEventListener('input', (e) => {
+            calcConversion = parseInt(e.target.value);
+            updateCalculator();
+        });
+    }
+
+    if (calcBillingSelector) {
+        const calcPills = calcBillingSelector.querySelectorAll('.calc-pill');
+        calcPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                calcPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                
+                calcTicket = parseInt(pill.getAttribute('data-ticket')) || 160;
+                calcBillingLevel = parseInt(pill.getAttribute('data-value')) || 1;
+                updateCalculator();
+            });
+        });
+    }
+
+    if (recoverRevenueBtn) {
+        recoverRevenueBtn.addEventListener('click', () => {
+            openModal();
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 3. Modal de Diagnóstico (Respondi)
+    // ----------------------------------------------------------------------
+    const modal = document.getElementById('respondiModal');
+    const openBtns = document.querySelectorAll('.open-diagnostico-btn');
+    const closeBtn = document.getElementById('closeModalBtn');
     
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+    function openModal() {
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Evita scroll do fundo
+        }
+    }
+    
+    function closeModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    if (openBtns.length > 0) {
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 4. FAQ Accordion
+    // ----------------------------------------------------------------------
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const trigger = item.querySelector('.faq-trigger');
+        const content = item.querySelector('.faq-content');
+        
+        if (trigger && content) {
+            trigger.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    const otherContent = otherItem.querySelector('.faq-content');
+                    if (otherContent) {
+                        otherContent.style.maxHeight = '0';
+                    }
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        }
+    });
+
+    // ----------------------------------------------------------------------
+    // 5. Animacao de Numeros (Stats Counter)
+    // ----------------------------------------------------------------------
+    const statsNumbers = document.querySelectorAll('.cpu-result-number');
+    
+    const animateStats = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Aumenta o delay para 200ms para um efeito mais visível e elegante
-                setTimeout(() => {
-                    entry.target.classList.add('active');
-                }, 200);
-                observer.unobserve(entry.target); // Anima apenas uma vez
-            }
-        });
-    }, {
-        threshold: 0.05, // Dispara mais cedo ao rolar a página
-        rootMargin: "0px 0px -20px 0px"
-    });
-    
-    revealElements.forEach(element => {
-        revealOnScroll.observe(element);
-    });
-
-    // ----------------------------------------------------------------------
-    // 3. Simulador de Preço e ROI (Modal e Cálculos)
-    // ----------------------------------------------------------------------
-    const calculatorModal = document.getElementById('calculatorModal');
-    const modalClose = document.getElementById('modalClose');
-    const billingSelector = document.getElementById('billingSelector');
-    const vetSlider = document.getElementById('vetSlider');
-    const vetValueText = document.getElementById('vetValue');
-    const aiToggle = document.getElementById('aiToggle');
-    
-    // Output Elements
-    const recPlanName = document.getElementById('recPlanName');
-    const estGrowth = document.getElementById('estGrowth');
-    const estRoi = document.getElementById('estRoi');
-    const estInvestment = document.getElementById('estInvestment');
-    const whatsappSimulatedBtn = document.getElementById('whatsappSimulatedBtn');
-    
-    // State
-    let selectedBillingLevel = 1; // 1 to 4
-    let vetCount = 3;
-    let isAiActive = false;
-
-    // Open Modal and Pre-set state if buttons clicked
-    const calcBtns = document.querySelectorAll('.btn-calculator');
-    calcBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const requestedPlan = e.target.getAttribute('data-plan');
-            
-            // Adjust defaults based on which button was clicked
-            if (requestedPlan === 'dominar') {
-                selectedBillingLevel = 2; // R$ 50k to 120k
-                vetCount = 5;
-                isAiActive = true;
-            } else {
-                selectedBillingLevel = 1; // R$ 50k
-                vetCount = 2;
-                isAiActive = false;
-            }
-            
-            // Apply states to UI
-            updateUIFromState();
-            calculateSimulation();
-            
-            // Show modal
-            calculatorModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // prevent scroll
-        });
-    });
-
-    // Close Modal
-    if (modalClose) {
-        modalClose.addEventListener('click', () => {
-            calculatorModal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    }
-
-    // Close modal clicking outside container
-    window.addEventListener('click', (e) => {
-        if (e.target === calculatorModal) {
-            calculatorModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Handle Billing Level Pill Selection
-    if (billingSelector) {
-        const pills = billingSelector.querySelectorAll('.pill-btn');
-        pills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                pills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-                selectedBillingLevel = parseInt(pill.getAttribute('data-value'));
-                calculateSimulation();
-            });
-        });
-    }
-
-    // Handle Slider Input
-    if (vetSlider) {
-        vetSlider.addEventListener('input', (e) => {
-            vetCount = parseInt(e.target.value);
-            vetValueText.textContent = `${vetCount} ${vetCount === 1 ? 'Vet' : 'Vets'}`;
-            calculateSimulation();
-        });
-    }
-
-    // Handle AI Toggle
-    if (aiToggle) {
-        aiToggle.addEventListener('change', (e) => {
-            isAiActive = e.target.checked;
-            calculateSimulation();
-        });
-    }
-
-    // Handle Qualification Form Submission (Alpha Style)
-    const qualificationForm = document.getElementById('qualificationForm');
-    if (qualificationForm) {
-        qualificationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const qBilling = document.getElementById('qBilling');
-            const qVets = document.getElementById('qVets');
-            const qAiToggle = document.getElementById('qAiToggle');
-            
-            if (qBilling && qVets) {
-                selectedBillingLevel = parseInt(qBilling.value) || 1;
-                vetCount = parseInt(qVets.value) || 3;
-                isAiActive = qAiToggle ? qAiToggle.checked : false;
+                const target = entry.target;
+                const targetVal = parseInt(target.getAttribute('data-target'), 10);
+                const duration = 1500; // 1.5 segundos
+                const startTime = performance.now();
                 
-                // Synchronize modal state with the new values
-                updateUIFromState();
-                calculateSimulation();
+                const updateNumber = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease out cubic
+                    const easeProgress = 1 - Math.pow(1 - progress, 3);
+                    const currentVal = Math.floor(easeProgress * targetVal);
+                    
+                    target.textContent = currentVal;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateNumber);
+                    } else {
+                        target.textContent = targetVal;
+                    }
+                };
                 
-                // Open Simulation Modal
-                if (calculatorModal) {
-                    calculatorModal.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
+                requestAnimationFrame(updateNumber);
+                observer.unobserve(target); // Anima apenas uma vez
             }
         });
-    }
-
-    // Helper to synchronize inputs with the current state (called on modal open)
-    function updateUIFromState() {
-        // Update Billing pills
-        if (billingSelector) {
-            const pills = billingSelector.querySelectorAll('.pill-btn');
-            pills.forEach(p => {
-                if (parseInt(p.getAttribute('data-value')) === selectedBillingLevel) {
-                    p.classList.add('active');
-                } else {
-                    p.classList.remove('active');
-                }
-            });
-        }
-        
-        // Update slider
-        if (vetSlider) {
-            vetSlider.value = vetCount;
-            vetValueText.textContent = `${vetCount} ${vetCount === 1 ? 'Vet' : 'Vets'}`;
-        }
-        
-        // Update AI Toggle
-        if (aiToggle) {
-            aiToggle.checked = isAiActive;
-        }
-    }
-
-    // Mathematical Simulation & Plan Recommendation Algorithm
-    function calculateSimulation() {
-        let plan = "Vet Crescer";
-        let growthVal = 0;
-        let roi = 4.2;
-        let investmentVal = "Consulte";
-        
-        // Determine recommended plan
-        // If billing is Level 2+ or they selected AI, we recommend Vet Dominar
-        if (selectedBillingLevel >= 2 || isAiActive) {
-            plan = "Vet Dominar";
-        } else {
-            plan = "Vet Crescer";
-        }
-        
-        // Estimated Growth Calculation
-        // base growth factor per vet + billing level multiplier
-        let baseGrowthPerVet = 4500;
-        let billingMultiplier = 1.0;
-        
-        switch (selectedBillingLevel) {
-            case 1: billingMultiplier = 1.0; break; // < 50k
-            case 2: billingMultiplier = 1.3; break; // 50k - 120k
-            case 3: billingMultiplier = 1.7; break; // 120k - 250k
-            case 4: billingMultiplier = 2.4; break; // > 250k
-        }
-        
-        growthVal = vetCount * baseGrowthPerVet * billingMultiplier;
-        
-        // Boost growth if AI is active (triage 24h/capture efficiency)
-        if (isAiActive) {
-            growthVal *= 1.25; // 25% faturamento extra capturado pela IA no WhatsApp
-        }
-        
-        // Suggested Investment suggestion
-        if (plan === "Vet Crescer") {
-            investmentVal = "R$ 2.800";
-            roi = 4.0 + (selectedBillingLevel * 0.3) + (vetCount * 0.05);
-        } else {
-            // Vet Dominar
-            if (selectedBillingLevel === 2) {
-                investmentVal = "R$ 4.500";
-            } else if (selectedBillingLevel === 3) {
-                investmentVal = "R$ 6.200";
-            } else if (selectedBillingLevel === 4) {
-                investmentVal = "R$ 8.900+";
-            } else {
-                // level 1 + AI
-                investmentVal = "R$ 4.200";
-            }
-            roi = 4.8 + (selectedBillingLevel * 0.4) + (vetCount * 0.08);
-        }
-        
-        // Cap ROI display for realism
-        if (roi > 6.8) roi = 6.8;
-        
-        // Format outputs
-        recPlanName.textContent = plan;
-        estRoi.textContent = `${roi.toFixed(1)}x`;
-        
-        // Format Growth to Brazilian Real String
-        estGrowth.textContent = `+R$ ${Math.round(growthVal).toLocaleString('pt-BR')}`;
-        
-        if (typeof investmentVal === 'number' || !investmentVal.includes('Consulta')) {
-            estInvestment.textContent = investmentVal;
-        } else {
-            estInvestment.textContent = "Sob Consulta";
-        }
-        
-        // Dynamic WhatsApp Link Builder
-        let textBilling = "Até R$ 50k";
-        if (selectedBillingLevel === 2) textBilling = "R$ 50k a R$ 120k";
-        if (selectedBillingLevel === 3) textBilling = "R$ 120k a R$ 250k";
-        if (selectedBillingLevel === 4) textBilling = "Acima de R$ 250k";
-        
-        const qNameInput = document.getElementById('qName');
-        const qClinicaInput = document.getElementById('qClinica');
-        const qName = qNameInput ? qNameInput.value.trim() : '';
-        const qClinica = qClinicaInput ? qClinicaInput.value.trim() : '';
-        
-        let introText = "Olá! Realizei a simulação de ROI no site da Voxe.";
-        if (qName && qClinica) {
-            introText = `Olá! Meu nome é ${qName}, represento o(a) ${qClinica}. Concluí o preenchimento do Diagnóstico de Crescimento no site da Voxe e obtive esta projeção:`;
-        } else if (qName) {
-            introText = `Olá! Meu nome é ${qName}. Concluí o Diagnóstico de Crescimento no site da Voxe e obtive esta projeção:`;
-        }
-        
-        const waBase = "https://wa.me/5511999999999";
-        const messageText = `${introText}
-- Faturamento atual: ${textBilling}
-- Equipe: ${vetCount} ${vetCount === 1 ? 'veterinário' : 'veterinários'}
-- Módulo IA WhatsApp: ${isAiActive ? 'Sim, desejado' : 'Não ativado'}
-- Plano Recomendado: ${plan}
-- Crescimento Mensal Estimado: ${estGrowth.textContent} (ROI de ${estRoi.textContent})
-
-Gostaria de validar estes números e agendar a reunião de diagnóstico de 8 horas.`;
-        
-        const encodedMessage = encodeURIComponent(messageText);
-        whatsappSimulatedBtn.setAttribute('href', `${waBase}?text=${encodedMessage}`);
-    }
+    };
+    
+    const statsObserver = new IntersectionObserver(animateStats, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    statsNumbers.forEach(num => statsObserver.observe(num));
 
     // ----------------------------------------------------------------------
-    // 4. Slider de Sócios (Quem está por trás da Voxe)
+    // 6. Partners Slider Logic (Autoplay + Controls)
     // ----------------------------------------------------------------------
     const partnerSlides = document.querySelectorAll('.partner-slide');
     const sliderDots = document.querySelectorAll('.slider-dot');
@@ -322,21 +225,20 @@ Gostaria de validar estes números e agendar a reunião de diagnóstico de 8 hor
 
     if (partnerSlides.length > 0 && sliderDots.length > 0) {
         function showPartner(index) {
-            if (index < 0) {
-                index = partnerSlides.length - 1;
-            } else if (index >= partnerSlides.length) {
-                index = 0;
+            // Remove active classes
+            partnerSlides[currentPartnerIndex].classList.remove('active');
+            sliderDots[currentPartnerIndex].classList.remove('active');
+            
+            // Loop index boundaries
+            if (index >= partnerSlides.length) {
+                currentPartnerIndex = 0;
+            } else if (index < 0) {
+                currentPartnerIndex = partnerSlides.length - 1;
+            } else {
+                currentPartnerIndex = index;
             }
             
-            currentPartnerIndex = index;
-            
-            partnerSlides.forEach(slide => {
-                slide.classList.remove('active');
-            });
-            sliderDots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
+            // Add active classes
             partnerSlides[currentPartnerIndex].classList.add('active');
             sliderDots[currentPartnerIndex].classList.add('active');
         }
@@ -399,3 +301,4 @@ Gostaria de validar estes números e agendar a reunião de diagnóstico de 8 hor
         });
     }
 });
+
