@@ -304,7 +304,7 @@ a {
 }
 @media (max-width: 991px) {
     .hero-section {
-        padding-top: 10px !important; /* Move a imagem bem pra cima no celular */
+        padding-top: 35px !important;
         padding-bottom: 30px;
     }
 }
@@ -323,8 +323,8 @@ a {
 }
 @media (min-width: 992px) {
     .hero-grid {
-        grid-template-columns: 46% 54%;
-        gap: 48px;
+        grid-template-columns: 40% 60%;
+        gap: 32px;
         align-items: center;
     }
 }
@@ -342,12 +342,12 @@ a {
 }
 .tag-badge {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 4px 10px;
     background-color: rgba(0, 212, 200, 0.08);
     border: 1px solid rgba(0, 212, 200, 0.15);
     border-radius: 20px;
     color: var(--accent-cyan);
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     font-weight: 700;
     margin-bottom: 20px;
     width: fit-content;
@@ -378,14 +378,13 @@ a {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
 }
 @media (max-width: 991px) {
     .hero-visual {
-        margin-left: -24px;
-        margin-right: -24px;
-        width: calc(100% + 48px);
-        margin-bottom: -32px; /* Puxa o título e texto mais para cima */
-        flex-shrink: 0; /* Prevents flexbox container from shrinking the width of the banner */
+        width: 100%;
+        margin-bottom: 0;
+        flex-shrink: 0;
     }
 }
 .hero-banner-img {
@@ -395,13 +394,13 @@ a {
 }
 @media (max-width: 991px) {
     .hero-banner-img {
-        transform: scale(1.1); /* Zoom levemente menor para salvar altura */
-        transform-origin: center center;
+        transform: scale(1.15);
+        transform-origin: center top;
     }
 }
 @media (min-width: 992px) {
     .hero-banner-img {
-        transform: scale(1.18); /* Zoom no PC sem cortar */
+        transform: scale(1.08);
         transform-origin: center center;
         transition: transform 0.3s ease;
     }
@@ -1339,8 +1338,9 @@ a {
 @media (max-width: 991px) {
     .tag-badge {
         margin-bottom: 10px;
-        font-size: 0.75rem;
-        padding: 4px 10px;
+        font-size: 0.65rem;
+        padding: 3px 8px;
+        letter-spacing: 0.03em;
     }
     .hero-title {
         font-size: 1.8rem;
