@@ -50,12 +50,13 @@ while ($server.Active -or $true) {
                 $tokens = $firstLine.Split(" ")
                 if ($tokens.Length -gt 1) {
                     $urlPath = $tokens[1].Split('?')[0]
-                    if ($urlPath -eq "/") { $urlPath = "/index.html" }
+                    $decodedPath = [uri]::UnescapeDataString($urlPath)
+                    if ($decodedPath -eq "/") { $decodedPath = "/index.html" }
                     
-                    $cleanPath = $urlPath.TrimStart('/')
+                    $cleanPath = $decodedPath.TrimStart('/')
                     $filePath = Join-Path (Get-Location) $cleanPath.Replace("/", "\")
                     
-                    if (Test-Path $filePath -PathType Leaf) {
+                    if (Test-Path -LiteralPath $filePath -PathType Leaf) {
                         $fileBytes = [System.IO.File]::ReadAllBytes($filePath)
                         
                         # MIME Types

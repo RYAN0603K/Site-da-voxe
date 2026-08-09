@@ -26,77 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ----------------------------------------------------------------------
-    // 2. Calculadora de Prejuízo Oculto
-    // ----------------------------------------------------------------------
-    const leadRange = document.getElementById('leadRange');
-    const convRange = document.getElementById('convRange');
-    const leadDisplay = document.getElementById('leadDisplay');
-    const convDisplay = document.getElementById('convDisplay');
-    const calcBillingSelector = document.getElementById('calcBillingSelector');
-    const lostConsultations = document.getElementById('lostConsultations');
-    const lostRevenue = document.getElementById('lostRevenue');
-    const recoverRevenueBtn = document.getElementById('recoverRevenueBtn');
 
-    let calcContacts = 200;
-    let calcConversion = 15;
-    let calcTicket = 160; 
-    let calcBillingLevel = 1;
-
-    function updateCalculator() {
-        if (!leadRange || !convRange) return;
-        
-        if (leadDisplay) leadDisplay.textContent = `${calcContacts} ${calcContacts === 1 ? 'mensagem' : 'mensagens'}`;
-        if (convDisplay) convDisplay.textContent = `${calcConversion}%`;
-
-        // Alvo saudável de conversão: 70% com automação + recepção treinada
-        const targetConversion = 70;
-        let lostPct = (targetConversion - calcConversion) / 100;
-        if (lostPct < 0) lostPct = 0;
-
-        const lostConsultationsVal = Math.round(calcContacts * lostPct);
-        const lostRevenueVal = lostConsultationsVal * calcTicket;
-
-        if (lostConsultations) lostConsultations.textContent = `-${lostConsultationsVal}`;
-        if (lostRevenue) lostRevenue.textContent = `R$ ${lostRevenueVal.toLocaleString('pt-BR')}`;
-    }
-
-    if (leadRange && convRange) {
-        // Inicializar com valores padrões
-        calcContacts = parseInt(leadRange.value) || 200;
-        calcConversion = parseInt(convRange.value) || 15;
-        updateCalculator();
-
-        leadRange.addEventListener('input', (e) => {
-            calcContacts = parseInt(e.target.value);
-            updateCalculator();
-        });
-
-        convRange.addEventListener('input', (e) => {
-            calcConversion = parseInt(e.target.value);
-            updateCalculator();
-        });
-    }
-
-    if (calcBillingSelector) {
-        const calcPills = calcBillingSelector.querySelectorAll('.calc-pill');
-        calcPills.forEach(pill => {
-            pill.addEventListener('click', () => {
-                calcPills.forEach(p => p.classList.remove('active'));
-                pill.classList.add('active');
-                
-                calcTicket = parseInt(pill.getAttribute('data-ticket')) || 160;
-                calcBillingLevel = parseInt(pill.getAttribute('data-value')) || 1;
-                updateCalculator();
-            });
-        });
-    }
-
-    if (recoverRevenueBtn) {
-        recoverRevenueBtn.addEventListener('click', () => {
-            openModal();
-        });
-    }
 
     // ----------------------------------------------------------------------
     // 3. Modal de Diagnóstico (Respondi)
@@ -302,3 +232,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// ==========================================================================
+// Tiles Animated Background Logic (Hero Section)
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('tiles-container');
+    if (!container) return;
+
+    let resizeTimer;
+
+    const createGrid = () => {
+        container.innerHTML = "";
+        
+        // Tile size must match CSS media queries
+        const tileSize = window.innerWidth <= 768 ? 36 : 48;
+        
+        // Calculate columns and rows to fully cover container, adding +1 to cover fractional edges
+        const columns = Math.ceil(container.clientWidth / tileSize);
+        const rows = Math.ceil(container.clientHeight / tileSize);
+        
+        const totalTiles = columns * rows;
+
+        for (let i = 0; i < totalTiles; i++) {
+            const tile = document.createElement("div");
+            tile.classList.add("tile");
+            
+            // Interaction logic (Hover in: fill instantly, Hover out: fade out slowly via CSS)
+            tile.addEventListener('mouseenter', () => {
+                tile.classList.add('filled');
+            });
+            tile.addEventListener('mouseleave', () => {
+                tile.classList.remove('filled');
+            });
+
+            container.appendChild(tile);
+        }
+    };
+
+    createGrid();
+
+    // Debounce resize to prevent excessive DOM recreation
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(createGrid, 200);
+    });
+});

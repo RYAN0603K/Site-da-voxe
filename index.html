@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voxe — Consultoria de Growth e Tecnologia para Clínicas Veterinárias</title>
-    <meta name="description" content="Assessoria de crescimento integrada para o mercado pet: posicionamento local, automação inteligente com TecPet e inteligência de lucros Expad.">
+    <title>Voxe — Assessoria de Growth para Empresas de Serviços</title>
+    <meta name="description" content="Assessoria de crescimento integrada para empresas de serviços: posicionamento local, automação comercial e inteligência de lucros.">
     
     <!-- Open Graph SEO -->
-    <meta property="og:title" content="Voxe — Consultoria de Growth Veterinário">
-    <meta property="og:description" content="Unimos posicionamento local no Google Maps, atendimento inteligente no WhatsApp e recepção comercial de alto fechamento.">
+    <meta property="og:title" content="Voxe — Assessoria de Growth Empresarial">
+    <meta property="og:description" content="Posicionamento local, atendimento inteligente no WhatsApp e estrutura comercial de alto fechamento para sua empresa.">
     <meta property="og:image" content="logo-transparent.png">
     <meta property="og:type" content="website">
 
     <!-- Fonts: Archivo & Archivo Black -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&family=Archivo:wght@300;400;500;600;700;800;900&family=Archivo+Black&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=10">
+    <link rel="stylesheet" href="style.css?v=27">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2235%22 fill=%22%23008AA3%22/></svg>">
@@ -28,31 +28,22 @@
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
+            <div id="tiles-container" class="tiles-container"></div>
+            <!-- Mobile: Fullscreen person background (like Performar) -->
+            <div class="hero-mobile-bg" aria-hidden="true">
+                <img src="Ryan branco (1).png" alt="" loading="eager">
+                <div class="hero-mobile-scrim"></div>
+            </div>
+
             <div class="container">
                 <div class="hero-grid">
-                    <!-- Coluna Esquerda: Copy, Bullets e Botão CTA -->
+                    <!-- Coluna Esquerda: Copy + CTA -->
                     <div class="hero-content">
-                        <span class="tag-badge" style="display: inline-block; margin-bottom: 12px;">A Única da América Latina</span>
-                        <h1 class="hero-title">Sua clínica atrai mais tutores <span class="texto-degrade-voxe">e faz eles voltarem.</span></h1>
+                        <span class="tag-badge">Para Empresários que Querem Mais</span>
+                        <h1 class="hero-title">O QUE EMPRESAS <span class="texto-degrade-voxe">QUE CRESCEM</span> FAZEM DIFERENTE?</h1>
                         
-                        <div class="path-steps">
-                            <div class="path-step">
-                                <span class="step-num-circle">✓</span>
-                                <div class="path-step-text">Diagnóstico gratuito da sua clínica</div>
-                            </div>
-                            <div class="path-step">
-                                <span class="step-num-circle">✓</span>
-                                <div class="path-step-text">Resultados de Verdade</div>
-                            </div>
-                            <div class="path-step">
-                                <span class="step-num-circle">✓</span>
-                                <div class="path-step-text">Especialistas exclusivos no mercado veterinário</div>
-                            </div>
-                        </div>
+                        <p class="hero-subtitle">Existe um padrão. Empresas que multiplicam resultados têm algo em comum que a maioria ignora. <strong>Descubra o que falta no seu negócio</strong> e comece a transformação.</p>
 
-                        <p class="hero-subtitle">A Voxe une presença digital, treinamento de recepção e rede de parcerias para crescer o faturamento da sua clínica de forma consistente.</p>
-
-                        <!-- Botão CTA e Hint integrados na mesma coluna de texto para ficarem visíveis sem scroll -->
                         <div class="hero-cta-group">
                             <button class="btn btn-primary btn-lg open-diagnostico-btn">
                                 Agendar Reunião &rarr;
@@ -63,11 +54,11 @@
                         </div>
                     </div>
 
-                    <!-- Coluna Direita: Imagem do Banner (Sem bordas, com zoom) -->
+                    <!-- Coluna Direita: Banner (Desktop only) -->
                     <div class="hero-visual">
                         <img
                             src="Inserir um título (3).png"
-                            alt="Voxe — Assessoria Veterinária"
+                            alt="Voxe — Assessoria de Growth Empresarial"
                             class="hero-banner-img"
                             fetchpriority="high"
                         >
@@ -82,20 +73,18 @@
         <!-- Ticker Logos -->
         <section class="seals-section">
             <div class="container seals-container">
-                <span class="seals-label">Parceiros com os maiores do Mundo</span>
+                <span class="seals-label">Metodologia validada por marcas como</span>
                 <div class="seals-slider-wrapper">
                     <div class="seals-track">
                         <div class="seal-slide"><img src="partner-meta.png" alt="Meta Partner" class="seal-img"></div>
                         <div class="seal-slide"><img src="partner-google.png" alt="Google Partner" class="seal-img"></div>
                         <div class="seal-slide"><img src="partner-expad.png" alt="Expad Logo" class="seal-img"></div>
-                        <div class="seal-slide"><img src="partner-tecpet.png" alt="TecPet Logo" class="seal-img tecpet-logo"></div>
-                        <div class="seal-slide"><div class="seal-text-logo">NEKTABLACK</div></div>
+                        <div class="seal-slide"><img src="Remova_as_informações_de_instagram_202606252339-Photoroom.png" alt="Ziel Imports Logo" class="seal-img" style="height: 80px; object-fit: contain;"></div>
                         <!-- Duplicated for Loop -->
                         <div class="seal-slide"><img src="partner-meta.png" alt="Meta Partner" class="seal-img"></div>
                         <div class="seal-slide"><img src="partner-google.png" alt="Google Partner" class="seal-img"></div>
                         <div class="seal-slide"><img src="partner-expad.png" alt="Expad Logo" class="seal-img"></div>
-                        <div class="seal-slide"><img src="partner-tecpet.png" alt="TecPet Logo" class="seal-img tecpet-logo"></div>
-                        <div class="seal-slide"><div class="seal-text-logo">NEKTABLACK</div></div>
+                        <div class="seal-slide"><img src="Remova_as_informações_de_instagram_202606252339-Photoroom.png" alt="Ziel Imports Logo" class="seal-img" style="height: 80px; object-fit: contain;"></div>
                     </div>
                 </div>
             </div>
@@ -108,7 +97,7 @@
                 <div class="section-header text-center mx-auto">
                     <span class="section-subtitle">Estrutura</span>
                     <h2 class="section-title">Tudo isso <span class="texto-degrade-voxe">funcionando junto, todos os meses</span></h2>
-                    <p class="section-description mx-auto">Enquanto sua clínica foca no atendimento, a Voxe cuida da estrutura por trás: o que traz contato novo, o que dá suporte no dia a dia, e o que mostra os resultados.</p>
+                    <p class="section-description mx-auto">Enquanto sua empresa foca na operação, a Voxe cuida da estrutura comercial: o que traz clientes novos, o que dá suporte no dia a dia, e o que mostra os resultados.</p>
                 </div>
 
                 <!-- CPU SVG Animation Container -->
@@ -510,237 +499,93 @@
                     <div class="cpu-result-item">
                         <div class="cpu-result-number-row">
                             <span class="cpu-result-prefix">+</span>
-                            <span class="cpu-result-number" data-target="350">0</span>
+                            <span class="cpu-result-number" data-target="500">0</span>
                         </div>
                         <span class="cpu-result-label">Novos Contatos / Mês</span>
-                        <p class="cpu-result-subtext">Tutores da sua região direcionados direto para o seu WhatsApp.</p>
+                        <p class="cpu-result-subtext">Clientes da sua região direcionados direto para o seu WhatsApp.</p>
                     </div>
-                    <div class="cpu-result-item">
-                        <div class="cpu-result-number-row">
-                            <span class="cpu-result-number" data-target="15">0</span>
-                            <span class="cpu-result-suffix">+</span>
-                        </div>
-                        <span class="cpu-result-label">Parceiros na Região</span>
-                        <p class="cpu-result-subtext">Clínicas, laboratórios e especialistas trocando indicações.</p>
-                    </div>
-                    <div class="cpu-result-item">
-                        <div class="cpu-result-number-row">
-                            <span class="cpu-result-number" data-target="70">0</span>
-                            <span class="cpu-result-suffix">%</span>
-                        </div>
-                        <span class="cpu-result-label">Conversão de Contatos</span>
-                        <p class="cpu-result-subtext">De curiosos no WhatsApp para consultas agendadas e confirmadas.</p>
-                    </div>
+
                 </div>
 
-                <!-- The Problem Copy Stack -->
-                <div class="problem-copy-stack py-medium">
-                    <h3 class="problem-stack-title text-center mx-auto">O problema da maioria das clínicas não é só <span class="texto-degrade-voxe">falta de novos clientes.</span></h3>
-                    <p class="problem-stack-subtitle text-center mx-auto">Na prática, o que trava o crescimento quase sempre é a <strong>combinação de três fatores:</strong></p>
-                    
-                    <div class="grid-3 py-medium">
-                        <div class="problem-card border-cyan-subtle">
-                            <h4 class="card-problem-title">Contatos que só querem preço</h4>
-                            <p class="card-text">Você atrai pessoas no WhatsApp, mas boa parte chega apenas procurando a vacina mais barata ou o preço do banho e tosa, e some sem agendar.</p>
-                        </div>
-                        <div class="problem-card border-cyan-subtle">
-                            <h4 class="card-problem-title">Sem saber onde perde dinheiro</h4>
-                            <p class="card-text">A clínica até recebe mensagens, mas não sabe com clareza quantas viraram consultas marcadas, quantas sumiram e onde está o gargalo do caixa.</p>
-                        </div>
-                        <div class="problem-card border-cyan-subtle">
-                            <h4 class="card-problem-title">Recepção lenta e reativa</h4>
-                            <p class="card-text">Sem um roteiro comercial ou acompanhamento rápido, as mensagens demoram a ser respondidas, o tutor esfria e agenda no concorrente.</p>
-                        </div>
-                    </div>
-
-                    <!-- Screenshots Mockup Row -->
-                    <div class="problem-mockups-row">
-                        <div class="mockup-item">
-                            <span class="mockup-tag">Expad: Inteligência de Lucros</span>
-                            <img src="expad-mobile-2.png" alt="Painel Expad Mobile" class="mockup-img" loading="lazy">
-                        </div>
-                        <div class="mockup-item">
-                            <span class="mockup-tag">TecPet: Recepção Comercial</span>
-                            <img src="tecpet-whatsapp.jpg" alt="WhatsApp TecPet Mobile" class="mockup-img" loading="lazy">
-                        </div>
-                    </div>
-
-                    <p class="problem-stack-conclusion text-center mx-auto">
-                        É por isso que anúncios sozinhos raramente resolvem. <strong>Para crescer com consistência</strong>, a clínica precisa de atração, controle e recepção comercial alinhados.
-                    </p>
-                    
-                    <h3 class="voxe-pillars-title text-center mx-auto mt-medium">A Voxe organiza a sua operação comercial em <span class="texto-degrade-voxe">3 pilares.</span></h3>
-                    <p class="voxe-pillars-desc text-center mx-auto">
-                        <strong>Não é só anúncio.</strong> É uma estrutura para fazer sua clínica atrair tutores melhores, enxergar o que traz retorno e lotar a agenda com mais eficiência.
-                    </p>
-                    <div class="text-center" style="margin-top: 30px;">
-                        <button class="btn btn-primary open-diagnostico-btn">Quero Crescer Minha Clínica &rarr;</button>
-                    </div>
+                <!-- The Target Audience Fast Tag -->
+                <div class="problem-copy-stack py-medium text-center mx-auto" style="max-width: 800px;">
+                    <h3 class="problem-stack-title">Nós não somos uma agência tradicional. <span class="texto-degrade-voxe">Somos uma assessoria de vendas.</span></h3>
+                    <p class="problem-stack-subtitle mb-0">Para empresas e prestadores de <strong>serviços</strong> (B2B ou B2C) que precisam lotar a agenda. <em>Não atendemos e-commerce ou produtos prontos.</em></p>
                 </div>
             </div>
         </section>
 
-        <!-- Como Aceleramos Sua Clínica -->
-        <section id="como-aceleramos" class="py-large bg-secondary">
+        <!-- Case Study Section - Ziel Imports -->
+        <section class="case-study-section py-large bg-secondary" style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
             <div class="container">
-                <div class="section-header text-center mx-auto">
-                    <span class="section-subtitle">Nosso Modelo</span>
-                    <h2 class="section-title">Pegamos o que sua clínica <span class="texto-degrade-voxe">já tem, e fazemos rodar mais rápido</span></h2>
-                    <p class="section-description mx-auto">Não se trata de começar do zero. A Voxe acelera o que já existe na sua clínica: seus clientes, sua equipe e sua presença na região.</p>
-                </div>
-
-                <div class="vs-container">
-                    <div class="vs-column">
-                        <h4 class="vs-title text-cyan">Clientes Que Você Já Tem</h4>
-                        <ul class="vs-list">
-                            <li><span class="icon-good">✓</span> Campanhas sazonais pra trazer o cliente de volta (vacina, check-up, banho e tosa, datas especiais dos pets)</li>
-                            <li><span class="icon-good">✓</span> Recepção treinada pra transformar uma pergunta de preço em consulta marcada</li>
-                            <li><span class="icon-good">✓</span> Clientes fiéis virando promotores da sua clínica, com estratégias de indicação</li>
-                        </ul>
-                    </div>
-                    <div class="vs-divider">
-                        <span class="vs-badge">+</span>
-                    </div>
-                    <div class="vs-column new-way">
-                        <h4 class="vs-title text-cyan">Sua Posição na Região</h4>
-                        <ul class="vs-list">
-                            <li><span class="icon-good">✓</span> Prospecção ativa de parcerias com outras clínicas, consultórios e hospitais veterinários da sua região</li>
-                            <li><span class="icon-good">✓</span> Rede de indicação mútua: você recebe pacientes de outros profissionais, e indica de volta</li>
-                            <li><span class="icon-good">✓</span> Sua clínica deixa de trabalhar isolada e passa a fazer parte de uma rede local</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Quem Atendemos -->
-        <section id="para-quem" class="py-large">
-            <div class="container">
-                <div class="section-header text-center mx-auto">
-                    <span class="section-subtitle">Nossos Parceiros</span>
-                    <h2 class="section-title">Para quem é o nosso <span class="texto-degrade-voxe">sistema de atração</span></h2>
-                    <p class="section-description mx-auto">Modelamos processos para atender às demandas específicas de diferentes estruturas veterinárias.</p>
+                <div class="section-header text-center mx-auto" style="margin-bottom: 40px;">
+                    <span class="section-subtitle" style="color: #FFB703;">Estudo de Caso</span>
+                    <h2 class="section-title" style="font-size: 3rem;">Resultados reais: <span style="color: #FFB703;">Importadora (SP)</span></h2>
+                    <p class="section-description mx-auto">Veja os números de uma operação comercial estruturada para máxima conversão em vendas, fugindo das métricas de vaidade.</p>
                 </div>
                 
-                <div class="grid-4 py-medium">
-                    <div class="atendemos-card">
-                        <h3 class="atendemos-card-title">Clínica Veterinária</h3>
-                        <p class="atendemos-card-text">Clínicas e consultórios que precisam encher a agenda de consultas particulares de forma constante.</p>
+                <div class="case-study-grid">
+                    <div class="case-study-visual">
+                        <img src="Resultados - Copia1.png" alt="Resultados Ziel Imports Dashboard" class="case-study-img" loading="lazy">
                     </div>
                     
-                    <div class="atendemos-card">
-                        <h3 class="atendemos-card-title">Hospital Veterinário 24h</h3>
-                        <p class="atendemos-card-text">Estruturas que necessitam ocupar exames, internações e fechar mais cirurgias complexas.</p>
-                    </div>
-                    
-                    <div class="atendemos-card">
-                        <h3 class="atendemos-card-title">Veterinário Domiciliar</h3>
-                        <p class="atendemos-card-text">Profissionais que atendem em domicílio e querem fazer os clientes antigos agendarem com mais frequência.</p>
-                    </div>
-                    
-                    <div class="atendemos-card">
-                        <h3 class="atendemos-card-title">Especialidades & Imagem</h3>
-                        <p class="atendemos-card-text">Centros cirúrgicos e de imagem que dependem de encaminhamento de pacientes de consultórios parceiros.</p>
+                    <div class="case-study-metrics">
+                        <div class="metric-card">
+                            <span class="metric-value">797</span>
+                            <span class="metric-label">Novos Leads Regionais</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">24</span>
+                            <span class="metric-label">Vendas Fechadas</span>
+                            <span class="metric-subtext" style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 5px; font-weight: 500;">Ticket Médio de R$500</span>
+                        </div>
+                        <div class="metric-card highlight-metric">
+                            <span class="metric-value" style="color: #FFB703;">R$ 11.955</span>
+                            <span class="metric-label">Faturamento Gerado</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">659%</span>
+                            <span class="metric-label">Lucro sobre Investimento</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-value">86,8%</span>
+                            <span class="metric-label">Margem de Lucro</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="text-center" style="margin-top: 60px;">
+                    <button class="btn btn-primary btn-lg open-diagnostico-btn" style="background: linear-gradient(135deg, #FFB703, #e8a000); box-shadow: 0 8px 30px rgba(255, 183, 3, 0.25); color: #000; font-weight: 900; font-size: 1.1rem; padding: 20px 40px;">
+                        Quero Ter Esse Resultado &rarr;
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracking System Section -->
+        <section class="tracking-system-section py-large" style="background-color: var(--bg-primary);">
+            <div class="container text-center mx-auto">
+                <div class="section-header" style="margin-bottom: 40px;">
+                    <span class="section-subtitle" style="color: var(--accent-cyan);">Inteligência e Controle</span>
+                    <h2 class="section-title">Transparência total sobre o seu <span class="texto-degrade-voxe">Faturamento</span></h2>
+                    <p class="section-description mx-auto">Você terá acesso ao nosso sistema de inteligência para acompanhar em tempo real cada centavo de faturamento gerado pela nossa assessoria. Nada de métricas de vaidade, apenas o que entra no caixa.</p>
+                </div>
                 
-                <div class="para-quem-cta-wrapper text-center" style="margin-top: 45px;">
-                    <button class="btn btn-primary open-diagnostico-btn">Quero Validar Minha Estrutura Veterinária →</button>
+                <div class="tracking-visual" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 50px rgba(45, 176, 199, 0.2); border: 1px solid rgba(45, 176, 199, 0.3); max-width: 1000px; margin: 0 auto;">
+                    <img src="Expadcopia1.png" alt="Painel de Faturamento Voxe" style="width: 100%; height: auto; display: block;" loading="lazy">
                 </div>
             </div>
         </section>
 
 
-
-        <!-- Calculator Section -->
-        <section id="calculadora-lucro" class="py-large bg-secondary">
-            <div class="container">
-                <div class="section-header text-center mx-auto">
-                    <span class="section-subtitle">Simulador de Perdas</span>
-                    <h2 class="section-title">Simulador de <span class="texto-degrade-voxe">Dinheiro Perdido</span></h2>
-                    <p class="section-description mx-auto">Veja a estimativa de faturamento que deixa de entrar no seu caixa por conta de respostas lentas ou atendimento sem roteiro de vendas.</p>
-                </div>
-                
-                <div class="calc-card grid-2">
-                    <!-- Left Inputs -->
-                    <div class="calc-inputs-panel">
-                        <h3 class="calc-panel-title">Como está o seu atendimento hoje?</h3>
-                        
-                        <div class="calc-input-group">
-                            <div class="calc-label-row">
-                                <label for="leadRange" class="calc-input-label">Média de mensagens de novos clientes / Mês</label>
-                                <span class="calc-val-display" id="leadDisplay">200 contatos</span>
-                            </div>
-                            <input type="range" class="calc-range" id="leadRange" min="50" max="1000" step="50" value="200">
-                            <div class="calc-ticks">
-                                <span>50</span>
-                                <span>300</span>
-                                <span>600</span>
-                                <span>1000</span>
-                            </div>
-                        </div>
-
-                        <div class="calc-input-group">
-                            <div class="calc-label-row">
-                                <label for="convRange" class="calc-input-label">Quantos % dos clientes a recepção consegue agendar?</label>
-                                <span class="calc-val-display" id="convDisplay">15%</span>
-                            </div>
-                            <input type="range" class="calc-range" id="convRange" min="5" max="60" step="5" value="15">
-                            <div class="calc-ticks">
-                                <span>5% (Lenta/Reativa)</span>
-                                <span>20% (Média)</span>
-                                <span>40% (Boa)</span>
-                                <span>60% (Excelente)</span>
-                            </div>
-                        </div>
-
-                        <div class="calc-input-group">
-                            <label class="calc-input-label">Faixa de faturamento mensal da clínica</label>
-                            <div class="calc-pills-container" id="calcBillingSelector">
-                                <button class="calc-pill active" data-value="1" data-ticket="160">Até R$ 50k</button>
-                                <button class="calc-pill" data-value="2" data-ticket="180">R$ 50k a R$ 120k</button>
-                                <button class="calc-pill" data-value="3" data-ticket="210">R$ 120k a R$ 250k</button>
-                                <button class="calc-pill" data-value="4" data-ticket="250">Acima de R$ 250k</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Outputs -->
-                    <div class="calc-outputs-panel">
-                        <div class="output-header">
-                            <h3 class="output-panel-title">Faturamento que escapou do seu caixa</h3>
-                            <span class="output-badge">Gargalo Crítico</span>
-                        </div>
-
-                        <div class="outputs-grid">
-                            <div class="output-box">
-                                <span class="output-box-label">Consultas e exames que você perdeu / Mês</span>
-                                <span class="output-box-value text-red" id="lostConsultations">-120</span>
-                                <p class="output-box-desc">Tutores da sua região que entraram em contato mas não agendaram.</p>
-                            </div>
-                            <div class="output-box highlight-neon">
-                                <span class="output-box-label">Dinheiro deixado na mesa</span>
-                                <span class="output-box-value text-glow-red" id="lostRevenue">R$ 21.600</span>
-                                <p class="output-box-desc">Perda mensal estimada por lentidão nas respostas e falta de scripts ativos na recepção.</p>
-                            </div>
-                        </div>
-
-                        <div class="calc-cta-wrapper">
-                            <button id="recoverRevenueBtn" class="btn btn-primary btn-full">Estancar Perdas e Agendar Auditoria</button>
-                            <p class="calc-disclaimer">*Cálculo baseado no ticket de consulta padrão por faixa. A real otimização é desenhada na auditoria gratuita.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Value Stack Section (Auditoria de Faturamento) -->
         <section id="valor-entregue" class="py-large" style="border-top: 1px solid var(--border-color);">
             <div class="container">
                 <div class="section-header text-center mx-auto">
                     <span class="section-subtitle">O que você recebe</span>
-                    <h2 class="section-title">O que vamos auditar na sua clínica em <span class="texto-degrade-voxe">45 minutos</span></h2>
-                    <p class="section-description mx-auto">Mais do que uma conversa, você recebe um plano tático com os reais gargalos da sua recepção.</p>
+                    <h2 class="section-title">O que vamos auditar na sua empresa em <span class="texto-degrade-voxe">45 minutos</span></h2>
+                    <p class="section-description mx-auto">Mais do que uma conversa, você recebe um plano tático com os reais gargalos do seu comercial.</p>
                 </div>
                 
                 <div class="value-stack-grid py-medium">
@@ -751,7 +596,7 @@
                             <span class="value-item-price">R$ 3.500,00</span>
                         </div>
                         <h4 class="value-item-title">Mapeamento de Presença Local</h4>
-                        <p class="value-item-text">Análise completa do seu posicionamento no Google Maps em relação aos concorrentes da sua região.</p>
+                        <p class="value-item-text">Análise completa do posicionamento da sua empresa no Google em relação aos concorrentes da região.</p>
                     </div>
                     
                     <!-- Item 2 -->
@@ -760,8 +605,8 @@
                             <span class="value-item-num">02</span>
                             <span class="value-item-price">R$ 4.800,00</span>
                         </div>
-                        <h4 class="value-item-title">Simulação de Conversão do Robô</h4>
-                        <p class="value-item-text">Demonstração de como a automação de agendamentos se integraria com o seu sistema de recepção (TecPet).</p>
+                        <h4 class="value-item-title">Simulação de Automação Comercial</h4>
+                        <p class="value-item-text">Demonstração de como a automação comercial se integraria com o seu processo de atendimento e vendas.</p>
                     </div>
                     
                     <!-- Item 3 -->
@@ -771,7 +616,7 @@
                             <span class="value-item-price">R$ 5.200,00</span>
                         </div>
                         <h4 class="value-item-title">Diagnóstico Comercial de Equipe</h4>
-                        <p class="value-item-text">Avaliação de como sua secretária atende no WhatsApp e script básico para parar de passar apenas preço.</p>
+                        <p class="value-item-text">Avaliação de como sua equipe atende no WhatsApp e script básico para parar de passar apenas preço.</p>
                     </div>
                     
                     <!-- Item 4 -->
@@ -789,7 +634,7 @@
                     <span class="total-label">Soma do valor entregue:</span>
                     <span class="total-price-slashed">R$ 19.500,00</span>
                     <span class="total-price-free">R$ 0,00</span>
-                    <p class="total-desc mx-auto">Para as clínicas veterinárias aprovadas na triagem deste formulário.</p>
+                    <p class="total-desc mx-auto">Para as empresas aprovadas na triagem deste formulário.</p>
                     <button class="btn btn-primary open-diagnostico-btn" style="margin-top: 20px;">Solicitar Auditoria Gratuita</button>
                 </div>
             </div>
@@ -799,56 +644,127 @@
 
 
 
+        <!-- Location Authority Section -->
+        <section class="location-section py-large bg-secondary" style="border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <div class="grid-2" style="align-items: center; gap: 40px;">
+                    <div class="location-content">
+                        <span class="section-subtitle" style="color: var(--accent-cyan);">Nosso QG</span>
+                        <h2 class="section-title">No coração financeiro do Brasil.</h2>
+                        <p class="section-description" style="margin-left: 0; margin-bottom: 24px;">
+                            Sede comercial no <strong>Thera Office Faria Lima</strong>. Atendemos todo o Brasil direto do maior polo de negócios da América Latina.
+                        </p>
+                        <div style="display: flex; gap: 10px; align-items: center; color: var(--text-muted); font-size: 0.9rem;">
+                            <span style="font-size: 1.2rem;">📍</span>
+                            <span>Pinheiros, São Paulo - SP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="location-visual" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); position: relative;">
+                        <img src="Captura de tela 2026-08-09 145352.png" alt="Thera Office Faria Lima - Escritório Voxe" style="width: 100%; height: 100%; object-fit: cover; display: block; aspect-ratio: 4/3;" loading="lazy">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 30px 20px 15px;">
+                            <span style="color: white; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em;">THERA OFFICE FARIA LIMA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- FAQ Section -->
         <section id="faq" class="py-large">
             <div class="container">
                 <div class="section-header text-center mx-auto">
                     <span class="section-subtitle">Dúvidas Frequentes</span>
                     <h2 class="section-title">Perguntas <span class="texto-degrade-voxe">Frequentes</span></h2>
-                    <p class="section-description mx-auto">Principais esclarecimentos sobre como funciona o modelo de assessoria comercial integrada da Voxe.</p>
+                    <p class="section-description mx-auto">Principais dúvidas sobre o modelo de assessoria de growth da Voxe.</p>
                 </div>
 
                 <div class="faq-container">
                     <div class="faq-item">
                         <button class="faq-trigger">
-                            <span>Eu mal tenho tempo de respirar atendendo pacientes. Essa assessoria vai me dar mais trabalho?</span>
+                            <span>Como funciona a Voxe?</span>
                             <span class="faq-icon-plus">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>Não. A Voxe existe exatamente para tirar você do 'trabalho de marketing' para que você foque na medicina veterinária. Nós montamos a máquina: subimos as campanhas, configuramos o robô de agendamento e treinamos a sua recepção. A sua única 'tarefa' será abrir o nosso painel pelo celular e ver quanto dinheiro as nossas estratégias colocaram no seu caixa.</p>
+                            <p>Fazemos um diagnóstico do seu negócio pra entender onde estão os gargalos de captação de clientes. A partir disso, montamos um plano de ação sob medida — tráfego, funil digital, CRM e estruturação comercial — focado em um resultado específico dentro de um prazo definido.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-trigger">
-                            <span>Já paguei agência para fazer post no Instagram e não trouxe clientes. Por que com vocês seria diferente?</span>
+                            <span>Preciso já ter marketing estruturado ou equipe própria?</span>
                             <span class="faq-icon-plus">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>Porque curtida não paga boleto. Nós não somos uma agência de redes sociais, somos uma assessoria de crescimento. Nosso foco é atrair o tutor que tem uma urgência agora no Google, garantir que o robô agende essa pessoa na mesma hora, e ensinar a sua clínica a prospectar consultórios parceiros (B2B) para receber indicações de cirurgias. É matemática e conversão, não dancinha no Instagram.</p>
+                            <p>Não. A Voxe assume o processo de captação de clientes do zero, com metodologia e acompanhamento próprios.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-trigger">
-                            <span>Vou precisar trocar o sistema de gestão da minha clínica para usar as ferramentas de vocês?</span>
+                            <span>Em quanto tempo eu vejo resultado?</span>
                             <span class="faq-icon-plus">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>De forma alguma. Nós sabemos que migrar de sistema é uma dor de cabeça. A nossa inteligência se conecta de forma segura aos sistemas que já são homologados no mercado pet (como o TecPet) para ler a sua agenda e marcar as consultas automaticamente. Você não muda o seu jeito de trabalhar, nós apenas turbinamos a tecnologia que você já tem.</p>
+                            <p>Isso varia conforme o diagnóstico do seu negócio — por isso o plano de ação é apresentado com prazo estimado antes de você fechar, sem promessa genérica.</p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-trigger">
-                            <span>Minha secretária já vive sobrecarregada. Esse método não vai dar mais trabalho para ela?</span>
+                            <span>A Voxe atende só um tipo de negócio?</span>
                             <span class="faq-icon-plus">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>Vai fazer o exato oposto. Hoje ela perde horas respondendo curiosos e passando endereço. Com a Voxe, o atendimento inicial, a triagem de emergências e o agendamento com os tutores são 100% automatizados 24h por dia. Com o robô marcando as consultas direto no sistema, sua secretária finalmente terá tempo para focar de verdade no que dá resultado: dar um atendimento premium a quem já está na clínica e focar em fechar os orçamentos de alto ticket.</p>
+                            <p>Não. Atendemos negócios locais de diferentes segmentos que precisam captar mais clientes de forma consistente. O que definimos juntos na reunião de diagnóstico é a estratégia certa pro seu caso.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>Qualquer empresa pode ser cliente da Voxe?</span>
+                            <span class="faq-icon-plus">+</span>
+                        </button>
+                        <div class="faq-content">
+                            <p>Não. Como o trabalho é sob medida, atendemos negócios que já faturam o suficiente pra sustentar o investimento e absorver o crescimento gerado. O primeiro passo é uma conversa de diagnóstico pra ver se faz sentido pros dois lados.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>Como sei se meu negócio está pronto?</span>
+                            <span class="faq-icon-plus">+</span>
+                        </button>
+                        <div class="faq-content">
+                            <p>Preencha o formulário abaixo e agende uma conversa de diagnóstico com a gente. Nela avaliamos seu momento atual e se a Voxe é o encaixe certo.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-trigger">
+                            <span>Vocês fazem esses posts de Instagram?</span>
+                            <span class="faq-icon-plus">+</span>
+                        </button>
+                        <div class="faq-content">
+                            <p>Sim, mas vamos ser diretos: só o post bonito não paga boleto. A gestão de redes sociais faz parte da estrutura porque faz diferença — sem ela, a operação fica incompleta e a marca perde consistência. Mas ela é parte do sistema, não o motor principal: o que realmente traz cliente é a combinação com tráfego pago e estruturação comercial.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta-section py-large text-center" style="background: linear-gradient(135deg, var(--bg-primary), #0c1b30); border-top: 1px solid var(--border-color);">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title" style="font-size: 3.2rem; margin-bottom: 20px; line-height: 1.1;">
+                    Pronto para estruturar o seu <span class="texto-degrade-voxe">Crescimento?</span>
+                </h2>
+                <p class="section-description mx-auto" style="margin-bottom: 40px; font-size: 1.15rem;">
+                    Pare de perder oportunidades por falta de processo comercial. Preencha o formulário e descubra o que falta para a sua empresa dobrar os agendamentos nos próximos 90 dias.
+                </p>
+                <button class="btn btn-primary btn-lg open-diagnostico-btn" style="box-shadow: 0 10px 40px rgba(45, 176, 199, 0.3); padding: 20px 50px; font-size: 1.15rem; width: 100%; max-width: 400px;">
+                    Começar Minha Avaliação &rarr;
+                </button>
             </div>
         </section>
     </main>
@@ -859,8 +775,9 @@
             <p style="font-size: 0.95rem; margin-bottom: 15px;">
                 <a href="mailto:atendimento@assessoriavoxe.com" style="color: var(--text-primary); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--accent-cyan)'" onmouseout="this.style.color='var(--text-primary)'">atendimento@assessoriavoxe.com</a>
             </p>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">CNPJ: 67.592.523/0001-45</p>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Voxe Assessoria de Growth & Tecnologia Pet. Todos os direitos reservados.</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px;">Rua Pais Leme 215, Conj 1713 - Pinheiros, São Paulo SP 05424-150</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">CNPJ: 67.592.523/0001-45</p>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">&copy; 2026 Voxe Assessoria de Growth. Todos os direitos reservados.</p>
         </div>
     </footer>
 
