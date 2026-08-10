@@ -1,6 +1,6 @@
 /* ==========================================================================
    Voxe Design System - B2B Premium Assessoria de Growth (2026)
-   Inspired by: Performar Company, Assessoria Alpha, SPR Marçal
+   Inspired by: Performar Company, Assessoria Alpha, SPR MarÃ§al
    ========================================================================== */
 
 /* Variables */
@@ -158,7 +158,7 @@ a {
     padding-bottom: 50px;
 }
 
-.text-center { text-align: center; }
+.text-center { text-align: left; }
 .mx-auto { margin-left: auto; margin-right: auto; }
 .w-full { width: 100%; }
 .d-flex { display: flex; }
@@ -389,25 +389,25 @@ a {
         width: 100%;
     }
     .hero-content {
-        text-align: center;
+        text-align: left;
         padding-top: 250px; /* Push content down to show face */
     }
     .hero-content .tag-badge {
-        margin-inline: auto;
+        margin-inline: 0;
     }
     .hero-title {
         font-size: 2.4rem;
         line-height: 1.15;
         margin-bottom: 16px;
         font-weight: 900;
-        text-align: center;
+        text-align: left;
     }
     .hero-subtitle {
         font-size: 1.05rem;
         line-height: 1.5;
         color: var(--text-secondary);
         margin-bottom: 24px;
-        text-align: center;
+        text-align: left;
         padding: 0 10px;
     }
     .hero-cta-group {
@@ -457,17 +457,21 @@ a {
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         position: relative;
-        overflow: hidden;
     }
     .hero-banner-img {
-        width: 100%;
-        height: auto;
+        width: auto;
+        max-width: 100%;
+        max-height: 650px;
+        object-fit: contain;
         display: block;
-        transform: scale(1.08);
-        transform-origin: center center;
+        transform: scale(1.05);
+        transform-origin: bottom center;
         transition: transform 0.3s ease;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+        -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     }
 }
 
@@ -476,7 +480,7 @@ a {
     margin-top: 24px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
 }
 .hero-cta-group .btn {
@@ -492,7 +496,7 @@ a {
     color: rgba(255, 255, 255, 0.4);
     width: 100%;
     max-width: 380px;
-    text-align: center;
+    text-align: left;
 }
 @media (max-width: 991px) {
     .hero-cta-group {
@@ -560,7 +564,7 @@ a {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    text-align: center;
+    text-align: left;
 }
 .seals-slider-wrapper {
     width: 100%;
@@ -679,7 +683,7 @@ a {
     font-size: 1.05rem;
     display: flex;
     gap: 10px;
-    align-items: flex-start;
+    align-items: center;
 }
 .icon-bad {
     display: inline-block;
@@ -1011,7 +1015,7 @@ a {
 .plan-features li {
     display: flex;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
 }
 .feature-icon {
     color: var(--text-muted);
@@ -1295,7 +1299,7 @@ a {
 .footer-copy {
     font-size: 0.95rem;
     color: var(--text-muted);
-    text-align: center;
+    text-align: left;
 }
 
 @media (min-width: 768px) {
@@ -1373,7 +1377,7 @@ a {
     font-size: 1.25rem;
     font-weight: 800;
     margin-bottom: 25px;
-    text-align: center;
+    text-align: left;
     color: var(--text-primary);
     line-height: 1.3;
 }
@@ -1426,7 +1430,7 @@ a {
 .path-step {
     display: flex;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
 }
 .path-step-icon {
     font-size: 1.1rem;
@@ -1624,7 +1628,7 @@ a {
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--accent-cyan);
-    text-align: center;
+    text-align: left;
     line-height: 1.2;
 }
 .garantia-seal-desc {
@@ -1726,8 +1730,9 @@ a {
    CPU Results Stats Bar Styles
    ========================================================================== */
 .cpu-results-bar {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 24px;
     margin: 20px auto 50px auto;
     max-width: var(--container-max-width);
@@ -1736,8 +1741,11 @@ a {
 
 @media (min-width: 768px) {
     .cpu-results-bar {
-        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
+    }
+    .cpu-result-item {
+        flex: 1 1 300px;
+        max-width: 450px;
     }
 }
 
@@ -1749,10 +1757,14 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
+}
+
+.cpu-result-item:only-child {
+    margin: 0 auto !important;
 }
 
 .cpu-result-item::before {
@@ -2085,7 +2097,7 @@ a {
 .partner-image-col {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .partner-img-frame {
@@ -2221,7 +2233,7 @@ a {
 .trajectory-list li {
     display: flex;
     gap: 16px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .trajectory-list li.mentor-highlight-item {
@@ -2735,7 +2747,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -2796,6 +2808,17 @@ a {
     pointer-events: auto;
 }
 
+/* Fix tracking visual centering and clipping */
+.tracking-visual {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    background-color: #f8fafc;
+    padding: 24px;
+    border-radius: 24px;
+    box-sizing: border-box;
+}
+
 .tile {
     width: 48px; /* tileSize="md" approx */
     height: 48px;
@@ -2818,4 +2841,5 @@ a {
     background-color: rgba(45, 176, 199, 0.15); /* var(--cyan-primary) low opacity */
     transition: background-color 0s;
 }
+
 
