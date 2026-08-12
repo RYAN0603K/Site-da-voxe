@@ -2843,3 +2843,29 @@ a {
 }
 
 
+
+/* Neon Glow Effect for Case Study Results */
+.neon-text-gold {
+    color: #FFD166 !important;
+    text-shadow:
+        0 0 5px rgba(255, 183, 3, 0.4),
+        0 0 15px rgba(255, 183, 3, 0.6),
+        0 0 30px rgba(255, 183, 3, 0.8);
+    animation: pulsate-soft 2s infinite alternate;
+}
+
+@keyframes pulsate-soft {
+    100% {
+        text-shadow:
+            0 0 7px rgba(255, 183, 3, 0.5),
+            0 0 18px rgba(255, 183, 3, 0.7),
+            0 0 35px rgba(255, 183, 3, 0.9);
+    }
+    0% {
+        text-shadow:
+            0 0 3px rgba(255, 183, 3, 0.3),
+            0 0 10px rgba(255, 183, 3, 0.4),
+            0 0 20px rgba(255, 183, 3, 0.5);
+    }
+}
+
