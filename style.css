@@ -589,6 +589,7 @@ a {
     height: 52px;
     width: auto;
     opacity: 0.65;
+    filter: grayscale(100%) sepia(40%) hue-rotate(160deg) saturate(180%);
     transition: var(--transition-fast);
 }
 @media (max-width: 991px) {
@@ -597,7 +598,8 @@ a {
     }
 }
 .seal-img:hover {
-    opacity: 0.95;
+    opacity: 1;
+    filter: grayscale(100%) sepia(60%) hue-rotate(160deg) saturate(250%) brightness(1.1);
 }
 .tecpet-logo {
     transform: scale(1.95); /* Aumenta o da tecpet que tem bordas transparentes internas */
